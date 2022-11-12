@@ -45,3 +45,21 @@ def place_marker(board, marker, position):
 
 place_marker(demo_board, player1_marker, 8)
 display_board(demo_board)
+
+### Victory Check, check all scenarios for victory, return true if the given mark won
+def victory_check(board,mark):
+    return ((board[7] == mark and board[8] == mark and board[9] == mark) or # across the top
+    (board[4] == mark and board[5] == mark and board[6] == mark) or # across the middle
+    (board[1] == mark and board[2] == mark and board[3] == mark) or # across the bottom
+    (board[7] == mark and board[4] == mark and board[1] == mark) or # down the middle
+    (board[8] == mark and board[5] == mark and board[2] == mark) or # down the middle
+    (board[9] == mark and board[6] == mark and board[3] == mark) or # down the right side
+    (board[7] == mark and board[5] == mark and board[3] == mark) or # diagonal
+    (board[9] == mark and board[5] == mark and board[1] == mark)) # diagonal
+
+victory_check(demo_board,'X')
+
+### Space Check, check if a spot is empty
+def space_check(board,position):
+    return board[position] == " "
+
