@@ -16,7 +16,7 @@ def display_board(board):
 demo_board = ['#','X','O','X','O','X','O','X','O','X']
 display_board(demo_board)
 
-### Get Player Input
+### Get Player Inputm assign marker to each player
 def player_input():
     marker = ''
     
@@ -33,4 +33,15 @@ def player_input():
 player1_marker, player2_marker = player_input()
 print(f"The player 1 has marker {player1_marker}, The player 2 has marker {player2_marker}")
 
+### Place marker in the board, according to user input
+def place_marker(board, marker, position):
+    while True:
+        position = int(input("where to put the marker "))
+        if position > 0 and position < 10:
+            break
+        else:
+            print("Please provide a position in the range 0-9")
+    board[position] = marker
 
+place_marker(demo_board, player1_marker, 8)
+display_board(demo_board)
