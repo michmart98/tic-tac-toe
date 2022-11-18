@@ -10,16 +10,17 @@ while True:
     print('Randomly we will select which one of you plays first')
     print(turn + ' will go first.')
     
-    play_game = input('Are you ready to play? Enter Yes or No. ')
-    
-    if play_game.lower() == 'yes':
-        game_on = True
-    #else:
-    #   game_on = False
-    elif play_game.lower() == 'no':
-        game_on = False
-    else:
-        print('Please input a valid option')
+    play_game = ""
+    while play_game.lower != "yes" or play_game.lower != "no":
+        play_game = input('Are you ready to play? Enter Yes or No. ')
+        if play_game.lower() == 'yes':
+            game_on = True
+            break
+        elif play_game.lower() == 'no':
+            game_on = False
+            break
+        else:
+            print('Please input a valid option')
 
 
     while game_on:
