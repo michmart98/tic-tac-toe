@@ -1,4 +1,6 @@
 import os
+import random
+
 
 ### Clear the Console-Display function
 def clear_disp():
@@ -13,22 +15,19 @@ def display_board(board):
     print('-----')
     print(board[1] + "|" + board[2] + "|" + board[3])
 
-
+#####ΤODO REFACTOR to print not valid option####
 ### Get Player Input assign marker to each player
 def player_input():
     marker = ''
     
     while not (marker == 'X' or marker == 'O'):
         marker = input('Player 1: Do you want to be X or O? ').upper()
-
     if marker == 'X':
         return ('X', 'O')
-    else:
+    elif marker == 'O':
         return ('O', 'X')
-    #elif marker == 'O':
-    #    return ('O', 'X')
-    #else:
-    #    print(f"{marker} is not a valid option. Please type X or O")
+    else:
+        print(f"{marker} is not a valid option. Please type X or O")
 
 
 
@@ -53,17 +52,14 @@ def win_check(board,mark):
 
 
 ### A function to random select who plays first
-import random
-
 def choose_first():
     if random.randint(0, 1) == 0:
         return 'Player 2'
     else:
         return 'Player 1'
 
-### Space Check, check if a spot is empty
+### Space Check, check if a spot is empty, returns true if there is space left
 def space_check(board, position):
-    
     return board[position] == ' '
 
 ### Full Board, check if the board is full
@@ -73,16 +69,29 @@ def full_board_check(board):
             return False
     return True
 
-#full_board(demo_board)
 
 ### Next position for player's marker
 def player_choice(board):
     position = 0
-    while position not in [1,2,3,4,5,6,7,8,9] or not space_check(board, position):
-        position = int(input('Choose your next position: (1-9) '))
+    #while position not in [1,2,3,4,5,6,7,8,9] or not space_check(board, position):
+    while position not in [1,2,3,4,5,6,7,8,9]: 
+        if not space_check(board, position):
+            position = 0
+            return 'dssd'
+        else:
+            position = int(input('Choose your next position: (1-9) '))
     return position
 
 ### Replay function
 def replay():
-    return input('Do you want to play again? Enter Yes or No: ').lower().startswith('y')
+    answer = ""
+    while answer != True or answer != False:
+        answer = input('Do you want to play again? Enter Yes or No: ').lower()
+        if answer == 'yes':
+            return True
+        elif answer == 'no':
+            return False
+        else:
+            print('Please provide a valid answer')
+        #return input('Do you want to play again? Enter Yes or No: ').lower().startswith('y')
 

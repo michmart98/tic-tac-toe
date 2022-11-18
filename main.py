@@ -7,20 +7,27 @@ while True:
     theBoard = [' '] * 10
     player1_marker, player2_marker = player_input()
     turn = choose_first()
+    print('Randomly we will select which one of you plays first')
     print(turn + ' will go first.')
     
-    play_game = input('Are you ready to play? Enter Yes or No.')
+    play_game = input('Are you ready to play? Enter Yes or No. ')
     
-    if play_game.lower()[0] == 'y':
+    if play_game.lower() == 'yes':
         game_on = True
-    else:
+    #else:
+    #   game_on = False
+    elif play_game.lower() == 'no':
         game_on = False
+    else:
+        print('Please input a valid option')
+
 
     while game_on:
         if turn == 'Player 1':
             # Player1's turn.
             
             display_board(theBoard)
+            print("Player1")
             position = player_choice(theBoard)
             place_marker(theBoard, player1_marker, position)
 
@@ -40,6 +47,7 @@ while True:
             # Player2's turn.
             
             display_board(theBoard)
+            print("Player2")
             position = player_choice(theBoard)
             place_marker(theBoard, player2_marker, position)
 
