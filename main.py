@@ -1,4 +1,6 @@
-from functions import display_board, player_input, place_marker, win_check, choose_first, full_board_check, player_choice, replay
+from functions import clear_disp, display_board, player_input, place_marker, win_check, choose_first, full_board_check, player_choice, replay
+
+clear_disp()
 
 print('Welcome to Tic Tac Toe!')
 
@@ -10,24 +12,24 @@ while True:
     print('Randomly we will select which one of you plays first')
     print(turn + ' will go first.')
     
-    play_game = input('Are you ready to play? Enter Yes or No. ')
-    
-    if play_game.lower() == 'yes':
-        game_on = True
-    #else:
-    #   game_on = False
-    elif play_game.lower() == 'no':
-        game_on = False
-    else:
-        print('Please input a valid option')
+    play_game = ""
+    while play_game.lower != "yes" or play_game.lower != "no":
+        play_game = input('Are you ready to play? Enter Yes or No. ')
+        if play_game.lower() == 'yes':
+            game_on = True
+            break
+        elif play_game.lower() == 'no':
+            game_on = False
+            break
+        else:
+            print('Please input a valid option')
 
 
     while game_on:
         if turn == 'Player 1':
             # Player1's turn.
-            
             display_board(theBoard)
-            print("Player1")
+            print("Player1 please")
             position = player_choice(theBoard)
             place_marker(theBoard, player1_marker, position)
 
@@ -45,9 +47,8 @@ while True:
 
         else:
             # Player2's turn.
-            
             display_board(theBoard)
-            print("Player2")
+            print("Player2 please")
             position = player_choice(theBoard)
             place_marker(theBoard, player2_marker, position)
 
