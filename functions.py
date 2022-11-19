@@ -15,19 +15,18 @@ def display_board(board):
     print('-----')
     print(board[1] + "|" + board[2] + "|" + board[3])
 
-#####ΤODO REFACTOR to print not valid option####
 ### Get Player Input assign marker to each player
 def player_input():
     marker = ''
     
     while not (marker == 'X' or marker == 'O'):
-        marker = input('Player 1: Do you want to be X or O? ').upper()
-    if marker == 'X':
-        return ('X', 'O')
-    elif marker == 'O':
-        return ('O', 'X')
-    else:
-        print(f"{marker} is not a valid option. Please type X or O")
+        marker = input('Player 1 will choose marker. Do you want to be X or O? ').upper()
+        if marker == 'X':
+            return ('X', 'O')
+        elif marker == 'O':
+            return ('O', 'X')
+        else:
+            print(f"{marker} is not a valid option. Please type X or O")
 
 
 
@@ -88,5 +87,3 @@ def replay():
             return False
         else:
             print('Please provide a valid answer')
-        #return input('Do you want to play again? Enter Yes or No: ').lower().startswith('y')
-

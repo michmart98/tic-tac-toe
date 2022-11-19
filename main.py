@@ -26,9 +26,8 @@ while True:
     while game_on:
         if turn == 'Player 1':
             # Player1's turn.
-            
             display_board(theBoard)
-            print("Player1")
+            print("Player1 please")
             position = player_choice(theBoard)
             place_marker(theBoard, player1_marker, position)
 
@@ -46,9 +45,8 @@ while True:
 
         else:
             # Player2's turn.
-            
             display_board(theBoard)
-            print("Player2")
+            print("Player2 please")
             position = player_choice(theBoard)
             place_marker(theBoard, player2_marker, position)
 
