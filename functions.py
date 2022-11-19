@@ -28,13 +28,9 @@ def player_input():
         else:
             print(f"{marker} is not a valid option. Please type X or O")
 
-
-
 ### Place marker in the board, according to user input
 def place_marker(board, marker, position):
     board[position] = marker
-
-
 
 ### Win Check, check all scenarios for winning, return true if the given mark won
 def win_check(board,mark):
@@ -47,8 +43,6 @@ def win_check(board,mark):
     (board[9] == mark and board[6] == mark and board[3] == mark) or # down the right side
     (board[7] == mark and board[5] == mark and board[3] == mark) or # diagonal
     (board[9] == mark and board[5] == mark and board[1] == mark)) # diagonal
-
-
 
 ### A function to random select who plays first
 def choose_first():
@@ -68,12 +62,20 @@ def full_board_check(board):
             return False
     return True
 
-
 ### Next position for player's marker
 def player_choice(board):
     position = 0
-    while position not in [1,2,3,4,5,6,7,8,9] or not space_check(board, position):
-        position = int(input('Choose your next position: (1-9) '))
+    while not space_check(board, position):
+        try:
+            position = int(input('Choose your next position: (1-9): '))
+            if position < 1 or position > 9:
+                raise ValueError #this will send it to the print message and back to the input option
+            #break
+            if not space_check(board, position):
+                print('This spot is already filled, please choose another one')
+        except ValueError:
+            print("This is not a whole number in range [1,9].")
+            position = 0 ### reset position value
     return position
 
 ### Replay function

@@ -1,4 +1,6 @@
-from functions import display_board, player_input, place_marker, win_check, choose_first, full_board_check, player_choice, replay
+from functions import clear_disp, display_board, player_input, place_marker, win_check, choose_first, full_board_check, player_choice, replay
+
+clear_disp()
 
 print('Welcome to Tic Tac Toe!')
 
