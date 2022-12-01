@@ -4,8 +4,8 @@ It is a TicTacToe Game implemented in Python. There are two players filling mark
 ## Code
 The code is mostly based in the course, with some improvements regarding functioning and error checking.
 ## Play
-• Who plays first is randomly selected. /n
-• The first player selects marker, X or O. /n
-• When someone wins there is a printing indication in the console. /n
-• If the board is full and none has won, it's a tie. /n
+• Who plays first is randomly selected.  <br />
+• The first player selects marker, X or O.  <br />
+• When someone wins there is a printing indication in the console.  <br />
+• If the board is full and none has won, it's a tie.  <br />
 • When the game is over, there would be a message asking if you want to replay.
